@@ -1,4 +1,5 @@
 from sys import platform
+import os
 import qrcode
 
 def qrcodegenerator(input_string, file_name='qr_code.png'): #function for generating qr code
@@ -18,5 +19,6 @@ input_String = "https://github.com"
 if platform == "linux" or platform == "linux2":
     qrcodegenerator(input_String, "./QRCode.png")
 elif platform == "win32":
-    qrcodegenerator(input_String, "C:\\Users\\User\\Desktop\\internship\\QRCode.png")
+    current_directory = os.getcwd()
+    qrcodegenerator(input_String, current_directory + "\\QRCode.png")
 

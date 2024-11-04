@@ -1,3 +1,4 @@
+from sys import platform
 import qrcode
 
 def qrcodegenerator(input_string, file_name='qr_code.png'): #function for generating qr code
@@ -13,6 +14,9 @@ def qrcodegenerator(input_string, file_name='qr_code.png'): #function for genera
     image = qr.make_image(fill='black', back_color='white') #create image from qrcode
     image.save(file_name) #save image to a file
     print(f"QR code is generated and saved as {file_name}")
-input_String = "https://example.com" #example to use
-qrcodegenerator(input_String, "C:\\Users\\User\\Desktop\\internship\\QRCode.png")
+input_String = "https://github.com"
+if platform == "linux" or platform == "linux2":
+    qrcodegenerator(input_String, "./QRCode.png")
+elif platform == "win32":
+    qrcodegenerator(input_String, "C:\\Users\\User\\Desktop\\internship\\QRCode.png")
 
